@@ -1,0 +1,138 @@
+/* BlogListPage.css */
+
+/* ページ全体のコンテナ */
+.blog-list-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: sans-serif; /* 基本フォント */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem 0; /* 上下の余白 */
+}
+
+.container {
+  max-width: 960px; /* コンテンツの最大幅 */
+  margin: 0 auto;   /* 中央寄せ */
+  padding: 0 1rem;  /* 左右の余白 */
+}
+
+/* ページヘッダー (「ブログ記事一覧」のタイトル部分) */
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* 記事リスト全体 */
+.blog-list {
+  display: grid;
+  gap: 2rem; /*記事間のスペース*/
+}
+
+/* 個々の記事アイテム */
+.blog-list-item {
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.blog-list-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.blog-list-item-header h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.blog-list-item-header h2 a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.blog-list-item-header h2 a:hover {
+  text-decoration: underline;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta time,
+.post-meta span { /* 執筆者名など */
+  margin-right: 1rem;
+}
+
+.blog-list-item-summary {
+  color: #495057;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* タグ (BlogPostPage.css と共通化可能) */
+.post-tags {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+/* 続きを読むリンク */
+.read-more-link {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
+
+/* 記事がない場合のメッセージ */
+.no-posts-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+}
+
+/* 読み込み中・エラー (BlogPostPage.css と共通化可能) */
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px); /* ヘッダーフッター分を適当に引く */
+  text-align: center;
+}
+
+.error-message {
+  color: #dc3545; /* エラーテキストの色 */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

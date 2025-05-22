@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import grayMatter from 'gray-matter';
+import { Link } from 'react-router-dom';
+import * as yaml from 'js-yaml';
 import './HomePage.css';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 interface PostFrontmatter {
     title: string;
@@ -9,86 +13,93 @@ interface PostFrontmatter {
     [key: string]: any;
 }
 
-interface BlogPost {
-  slug: string;
-  frontmatter: PostFrontmatter;
-  content?: string;
+interface ParsedContent {
+    data: Partial<PostFrontmatter>;
+    body: string;
+}
+
+interface Post {
+    frontmatter: Partial<PostFrontmatter>;
+    slug: string;
+}
+
+const postFiles = import.meta.glob('../assets/blog/*.md', { query: '?raw', import: 'default' });
+
+function parseFrontMatter(content: string): ParsedContent {
+    const match = /^---\n([\s\S]+?)\n---/.exec(content);
+    if (!match) return { data: {}, body: content };
+
+    const yamlContent = match[1];
+    const body = content.slice(match[0].length).trim();
+
+    let data: Partial<PostFrontmatter> = {};
+    try {
+        const parsedYaml = yaml.load(yamlContent);
+        if(typeof parsedYaml === 'object' && parsedYaml !== null){
+            data = parsedYaml as PostFrontmatter;
+        }
+        else {
+            console.error('yamlのパース結果に異常があります');
+        }
+    } catch (e) {
+        console.error('YAMLパースエラー:', e);
+    }
+
+    return { data, body };
 }
 
 const HomePage: React.FC = () => {
 
-    const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
+    
+        useEffect(() => {
+            async function loadPosts() {
+            const loadedPosts = [];
 
-    useEffect(() => {
-    const fetchPosts = async () => {
-    const modules = import.meta.glob('/src/assets/blog/**/*.md', {
-        as: 'raw', // Vite 5.1+ では 'string' も可
-        eager: true, // 同期的に読み込む
-    });
+            console.log('postFiles:', postFiles); // デバッグ用
+    
+            for (const path in postFiles) {
+                console.log('Processing path:', path); // デバッグ用
+                const contentModule = await postFiles[path]();
+                const content = typeof contentModule === 'string' ? contentModule: (contentModule as any).default;
+                
+                if(typeof content !== 'string') {
+                    console.error(`Failed to load content for ${path}`);
+                    continue;
+                }
 
-    console.log('Vite modules:', modules); // デバッグ用
+                const { data } = parseFrontMatter(content);
+                const fileName = path.split('/').pop();
 
-    const posts: BlogPost[] = [];
-    for (const path in modules) {
-        console.log('Processing path:', path); // デバッグ用
+                if(fileName) {
+                    loadedPosts.push({
+                        frontmatter: data,
+                        slug: fileName.replace(/\.md$/, ''),
+                    });
+                } else {
+                    console.warn(`Could not extract filename from path: ${path}`);
+                }
+            }
+    
+            const sorted = loadedPosts
+                .filter(post =>
+                    post.frontmatter &&
+                    typeof post.frontmatter.date === 'string' &&
+                    !isNaN(new Date(post.frontmatter.date).getTime())
+                )
+                .sort((a, b) => 
+                    new Date(b.frontmatter.date as string).getTime() - new Date(a.frontmatter.date as string).getTime())
+                .slice(0, 3);
 
-        const rawContent = modules[path];
-        const { data } = grayMatter(rawContent); // contentも必要なら { data, content }
+                setPosts(sorted);
+            }
 
-        console.log('Frontmatter (data):', data); // デバッグ用
-
-        // ファイルパスからslugと日付を抽出（例）
-        // src/assets/blog/2025-05-22-my-vite-post.md -> 2025-05-22-my-vite-post
-        const slug = path
-        .split('/')
-        .pop()
-        ?.replace(/\.md$/, '') || '';
-
-        // フロントマターの日付を優先するが、なければファイル名から推測するロジックも追加可能
-        const postDate = data.date || slug.substring(0, 10); // YYYY-MM-DD
-
-        posts.push({
-        slug,
-        frontmatter: {
-            title: data.title || '無題の記事',
-            date: postDate,
-            summary: data.summary || '概要がありません。',
-            ...data, // その他のフロントマターも展開
-        },
-        // content: content, // contentも保持する場合
-        });
-    }
-
-    // 日付で降順ソート
-    const sortedPosts = posts.sort(
-        (a, b) =>
-        new Date(b.frontmatter.date).getTime() -
-        new Date(a.frontmatter.date).getTime()
-    );
-
-    setLatestPosts(sortedPosts.slice(0, 3));
-    };
-
-    fetchPosts().catch(console.error);
-    }, []);
+            loadPosts();
+        }, []);
 
     return (
         <div className="home-page-container">
-        <header className="header">
-            <div className="container header-content">
-            {/* ロゴはテキストまたは画像に置き換えてください */}
-            <a href="/" className="logo-link">
-                おもしろ界隈
-            </a>
-            <nav className="navigation">
-                <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs">Blogs</a></li>
-                <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-            </div>
-        </header>
+        <Header />
 
         <main className="main-content">
             <div className="container">
@@ -101,32 +112,24 @@ const HomePage: React.FC = () => {
             <section className="blog-posts-preview">
                 <h2>最近の投稿</h2>
                 <div className="post-card-container">
-                {latestPosts.length > 0 ? (
-                    latestPosts.map((post) => (
-                    <div className="post-card" key={post.slug}>
-                        <h3>{post.frontmatter.title}</h3>
-                        {post.frontmatter.date && (
-                        <p className="post-date">{post.frontmatter.date}</p>
-                        )}
-                        <p>{post.frontmatter.summary}</p>
-                        <a href={`/blog/${post.slug}`} className="read-more">
-                        続きを読む &rarr;
-                        </a>
-                    </div>
-                    ))
-                ) : (
-                    <p>最近の投稿はありません。</p>
-                )}
+                    {posts.map((post) => (
+                        <div key={post.slug} className="post-card">
+                            <h3>{post.frontmatter.title}</h3>
+                            {post.frontmatter.date && (
+                            <p className="post-date">{post.frontmatter.date}</p>
+                            )}
+                            <p>{post.frontmatter.summary}</p>
+                            <Link to={`/blog/${post.slug}`} className="read-more">
+                            続きを読む &rarr;
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </section>
             </div>
         </main>
 
-        <footer className="footer">
-            <div className="container">
-            <p>&copy; {new Date().getFullYear()} MySiteLogo. All rights reserved.</p>
-            </div>
-        </footer>
+        <Footer />
         </div>
     )
 }

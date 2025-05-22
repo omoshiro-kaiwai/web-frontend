@@ -1,13 +1,21 @@
 import { useState } from 'react'
-import './App.css'
-import HomePage from './pages/HomePage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+import HomePage from './pages/HomePage';
+import BlogPostPage from './pages/BlogPostPage';
+import BlogListPage from './pages/BlogListPage';
 
 function App() {
-    const [count, setCount] = useState(0)
-
-    return (
-        <HomePage />
-    )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/blogs" element={<BlogListPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

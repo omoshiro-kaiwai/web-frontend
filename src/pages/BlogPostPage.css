@@ -1,0 +1,247 @@
+/* 基本的なレイアウトは HomePage.css の .home-page-container と同様 */
+.blog-post-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f6f8; /* HomePage と同じ背景 */
+  color: #333;
+  line-height: 1.6;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px 0; /* HomePage と同様 */
+}
+
+.blog-post-content-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px 35px; /* コンテンツ周りのパディング */
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* HomePage の post-card に近い影 */
+}
+
+.blog-post-main-header {
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #eee; /* 少し太めの区切り線 */
+}
+
+.blog-post-main-header h1 {
+  font-size: 2.5rem; /* HomePage の hero h1 よりは少し控えめ */
+  color: #333333; /* HomePage の h2 と同様 */
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.post-meta time {
+  font-weight: 500;
+}
+
+.post-tags {
+  margin-top: 15px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f0e6f6; /* HomePage ナビホバー背景に類似 */
+  color: #9400d3; /* HomePage キーカラー */
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.blog-post-body {
+  font-size: 1.05rem; /* 基本の文字サイズを少し大きめに */
+  line-height: 1.8; /* 行間を広めにとって読みやすく */
+  color: #444; /* 本文の色を少し濃く */
+}
+
+/* Markdown要素のスタイリング */
+.blog-post-body h2,
+.blog-post-body h3,
+.blog-post-body h4,
+.blog-post-body h5,
+.blog-post-body h6 {
+  color: #333;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.blog-post-body h2 {
+  font-size: 1.9em; /* h1に対する相対サイズ */
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.3em;
+}
+
+.blog-post-body h3 {
+  font-size: 1.6em;
+}
+
+.blog-post-body h4 {
+  font-size: 1.3em;
+}
+
+.blog-post-body p {
+  margin-bottom: 1.3em;
+}
+
+.blog-post-body a {
+  color: #9400d3; /* HomePage のキーカラー */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.blog-post-body a:hover {
+  text-decoration: underline;
+  color: #7a00ab; /* HomePage のキーカラー濃い版 */
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  margin-bottom: 1.3em;
+  padding-left: 2em; /* リストマーカーのスペース */
+}
+
+.blog-post-body li {
+  margin-bottom: 0.6em;
+}
+
+.blog-post-body blockquote {
+  border-left: 5px solid #9400d3; /* HomePage キーカラー */
+  padding: 10px 20px;
+  margin: 1.5em 0;
+  background-color: #f9f9f9; /* 引用ブロックの背景 */
+  color: #555;
+  font-style: italic;
+}
+
+.blog-post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* コードブロックのスタイリング */
+.blog-post-body pre {
+  background-color: #2d2d2d; /* ダークテーマのコードブロック背景 */
+  color: #f8f8f2; /* 明るいテキスト色 */
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto; /* 横スクロールを可能に */
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin: 1.5em 0;
+}
+
+.blog-post-body code {
+  /* インラインコード */
+  background-color: #f0e6f6; /* HomePage ナビホバー背景に類似 */
+  color: #9400d3;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em; /* pre内のcodeと区別 */
+}
+
+.blog-post-body pre code {
+  /* pre タグ内の code タグは親の pre のスタイルを継承 */
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit; /* pre のフォントサイズを継承 */
+}
+
+.blog-post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5em auto; /* 画像を中央揃えにする場合は display: block も追加 */
+  display: block; /* 画像をブロック要素にしてマージンを有効に */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.blog-post-body hr {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 2.5em 0;
+}
+
+.navigation-links{
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* HomePage の .cta-button に似ているが、少し異なるボタン */
+.cta-button-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: #9400d3; /* キーカラー */
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #9400d3; /* キーカラーのボーダー */
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.cta-button-secondary:hover {
+  background-color: #f0e6f6; /* キーカラーの薄いバージョン */
+  color: #7a00ab; /* キーカラーの濃いバージョン */
+  border-color: #7a00ab;
+  transform: translateY(-2px);
+}
+
+/* ローディング・エラー表示用 */
+.loading-container,
+.error-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 0;
+}
+.error-message {
+    color: #c0392b; /* エラーメッセージ用の赤色 */
+    background-color: #fdd;
+    border: 1px solid #c0392b;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* レスポンシブ対応（HomePage.css に合わせる） */
+@media (max-width: 768px) {
+  .blog-post-content-wrapper {
+    padding: 20px 25px;
+  }
+
+  .blog-post-main-header h1 {
+    font-size: 2rem; /* スマホでは少し小さく */
+  }
+
+  .blog-post-body {
+    font-size: 1rem;
+  }
+
+  .blog-post-body h2 { font-size: 1.7em; }
+  .blog-post-body h3 { font-size: 1.4em; }
+  .blog-post-body h4 { font-size: 1.2em; }
+}

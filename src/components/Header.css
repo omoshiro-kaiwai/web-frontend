@@ -1,0 +1,43 @@
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* .container スタイル (max-width, margin, padding) は別途適用される想定 */
+}
+
+.logo-link,
+.logo-link:visited {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #9400d3;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navigation li {
+  margin-left: 1.5rem;
+}
+
+.navigation a,
+.navigation a:visited {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+  color: #007bff;
+}
