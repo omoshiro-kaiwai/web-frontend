@@ -72,7 +72,7 @@ const BlogListPage: React.FC = () => {
             continue;
           }
 
-          const { data, body } = parseFrontMatter(rawContent);
+          const data = parseFrontMatter(rawContent).data;
 
           // slug をファイル名から生成 (例: '../assets/blog/my-post.md' -> 'my-post')
           const slug = path
