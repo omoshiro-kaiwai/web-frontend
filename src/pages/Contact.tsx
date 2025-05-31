@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import './Contact.css';
 
 import Header from '../components/Header';
