@@ -105,7 +105,7 @@ const HomePage: React.FC = () => {
             <div className="container">
             <section className="hero-section">
                 <h1>おもしろ界隈のブログへようこそ</h1>
-                <p>バナナ</p>
+                <p>俺たちの「おもしろ」を、世界へ。</p>
                 <a href="/blogs" className="cta-button">最新記事を読む</a>
             </section>
 

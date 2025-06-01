@@ -101,7 +101,7 @@ body {
 }
 
 .hero-section {
-  background: linear-gradient(135deg, #9400d3 0%, #aa3eff 100%); /* キーカラーベースのグラデーション */
+  background: linear-gradient(135deg, #7928ca 0%, #9400d3 50%, #ff0080 100%); /* キーカラーベースのグラデーション */
   color: #ffffff;
   text-align: center;
   padding: 70px 25px;
