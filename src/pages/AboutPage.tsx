@@ -45,7 +45,7 @@ const membersData: Member[] = [
 		id: 4,
 		name: 'ogeeeen',
 		bio: '化学の勉強をしています。ゲームが好きです。',
-		twitterUsername: 'omoshiokaiwai',
+		twitterUsername: 'omoshirokaiwai',
 		profileIcon: 'user4.jpg',
 	},
 ];
