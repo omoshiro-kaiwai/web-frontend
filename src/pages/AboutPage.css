@@ -137,9 +137,6 @@
     width: 80px; /* 少し小さく調整 */
     height: 80px;
   }
-  .member-info {
-    /* 特に指定なしでもフレックスアイテムとして伸びる */
-  }
 }
 
 @media (max-width: 767px) {

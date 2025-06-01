@@ -51,6 +51,36 @@
   margin-top: 15px;
 }
 
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+
+.author-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.8em;
+  overflow: hidden;
+}
+
+img.author-icon {
+  object-fit: cover;
+  object-position: center;
+}
+
+.default-author-icon {
+  background-color: #ccc;
+}
+
 .tag {
   display: inline-block;
   background-color: #f0e6f6; /* HomePage ナビホバー背景に類似 */
@@ -205,6 +235,29 @@
   color: #7a00ab; /* キーカラーの濃いバージョン */
   border-color: #7a00ab;
   transform: translateY(-2px);
+}
+
+.navigation-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.x-share-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 100px;
+	margin-bottom: 20px;
+    justify-content: center;
+}
+.x-share-button {
+  	height: 32px;
+}
+.cta-button-secondary.twitter-share-button {
+    display: inline-flex;
+    align-items: center; 
+    gap: 8px;
 }
 
 /* ローディング・エラー表示用 */

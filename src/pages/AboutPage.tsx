@@ -13,34 +13,41 @@ interface Member {
 }
 
 const membersData: Member[] = [
-  {
-    id: 1,
-    name: 'Tsusu',
-    bio: 'webをちまちま学んでいます。自炊とラーメンが好きです。',
-    twitterUsername: 'tsusu0409',
-    profileIcon: 'user1.jpg',
-  },
-  {
-    id: 2,
-    name: 'いけじーん',
-    bio: 'ゲームがめっっっっっちゃ上手いです。ヒョロガリオタク。',
-    twitterUsername: 'i_ke_ke_ke',
-    profileIcon: 'user2.jpg',
-  },
-  {
-    id: 3,
-    name: 'れんきゅんなう☆',
-    bio: 'ディズニーが好きです。',
-    twitterUsername: 'omoshirokaiwai',
-    profileIcon: 'user3.jpg',
-  },
-  {
-    id: 4,
-    name: 'ogeeeen',
-    bio: '化学の勉強をしています。ゲームが好きです。',
-    twitterUsername: 'omoshiokaiwai',
-    profileIcon: 'user4.jpg',
-  },
+	{
+		id: 99,
+		name: 'おもしろ界隈',
+		bio: 'みんなで記事をあげるときのユーザー',
+		twitterUsername: 'omoshirokaiwai',
+		profileIcon: 'user99.jpg',
+	},
+	{
+		id: 1,
+		name: 'Tsusu',
+		bio: 'webをちまちま学んでいます。自炊とラーメンが好きです。',
+		twitterUsername: 'tsusu0409',
+		profileIcon: 'user1.jpg',
+	},
+	{
+		id: 2,
+		name: 'いけじーん',
+		bio: 'ゲームがめっっっっっちゃ上手いです。ヒョロガリオタク。',
+		twitterUsername: 'i_ke_ke_ke',
+		profileIcon: 'user2.jpg',
+	},
+	{
+		id: 3,
+		name: 'れんきゅんなう☆',
+		bio: 'ディズニーが好きです。',
+		twitterUsername: 'omoshirokaiwai',
+		profileIcon: 'user3.jpg',
+	},
+	{
+		id: 4,
+		name: 'ogeeeen',
+		bio: '化学の勉強をしています。ゲームが好きです。',
+		twitterUsername: 'omoshiokaiwai',
+		profileIcon: 'user4.jpg',
+	},
 ];
 
 const AboutPage: React.FC = () => {
@@ -58,8 +65,12 @@ const AboutPage: React.FC = () => {
 				<section className="members-section">
 					<h2>メンバー紹介</h2>
 					<div className="members-grid">
-					{membersData.map((member) => (
-						<div key={member.id} className="member-card">
+					{membersData.map((member) => {
+						if (member.id === 99) {
+							return null;
+						}
+						else return (
+							<div key={member.id} className="member-card">
 							<div className="member-icon-container">
 							<img
 								src={`/images/${member.profileIcon}`}
@@ -85,7 +96,8 @@ const AboutPage: React.FC = () => {
 							</a>
 							</div>
 						</div>
-					))}
+						)
+					})}
 					</div>
 				</section>
 			</div>

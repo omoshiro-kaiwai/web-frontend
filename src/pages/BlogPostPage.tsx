@@ -11,8 +11,9 @@ import Footer from '../components/Footer';
 interface PostFrontmatter {
     title: string;
     date: string;
-    summary?: string; // summary はブログ一覧では使うが、記事ページでは必須ではない想定
+    summary?: string;
     author?: string;
+    authorID?: number;
     tags?: string[];
     [key: string]: any;
 }
@@ -131,6 +132,24 @@ const BlogPostPage: React.FC = () => {
         );
     }
 
+    const getAuthorImagePath = (authorID?: number): string | null => {
+        if (!authorID) return null;
+        const imageName = 'user'+ authorID + '.jpg';
+        return `/images/${imageName}`;
+    };
+
+    const authorImagePath = getAuthorImagePath(post.frontmatter.authorID);
+    const authorName = post.frontmatter.author;
+
+    // Twitterシェア用の情報を準備
+    const siteBaseUrl = 'https://omoshirokaiwai.com/blog/'; // 固定のベースURL
+    const shareUrl = `${siteBaseUrl}${post.slug}`; // ベースURLと現在の記事のslugを結合
+
+    const shareText = post.frontmatter.title
+        ? `${post.frontmatter.title}｜おもしろ界隈` // 記事タイトルがあれば使用
+        : `記事を読みました｜おもしろ界隈`; // タイトルがない場合のフォールバックテキスト
+    const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+
     return (
         <div className="blog-post-page-container">
             <Header />
@@ -145,8 +164,24 @@ const BlogPostPage: React.FC = () => {
                                     公開日: <time dateTime={post.frontmatter.date}>{new Date(post.frontmatter.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
                                 </p>
                             )}
-                            {post.frontmatter.author && (
-                                <p className="post-meta">執筆者: {post.frontmatter.author}</p>
+                            {authorName && (
+                                <p className="post-meta author-info">
+                                    {authorImagePath  ? (
+                                        <img
+                                            src={authorImagePath}
+                                            alt={`${authorName}のアイコン`}
+                                            className="author-icon"
+                                            onError={() => {
+                                                console.warn(`著者の画像が見つかりませんでした: ${authorImagePath}`);
+                                            }}
+                                        />
+                                    ) : (
+                                        // フォールバックアイコン (画像がない場合やエラー時)
+                                        <span className="author-icon default-author-icon">
+                                        </span>
+                                    )}
+                                    {authorName}
+                                </p>
                             )}
                             {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
                                 <div className="post-tags">
@@ -159,21 +194,27 @@ const BlogPostPage: React.FC = () => {
                         <div className="blog-post-body">
                             <ReactMarkdown
                                 components={{
-                                    // 必要に応じて特定のHTML要素のレンダリングをカスタマイズ
-                                    //例: 外部リンクに target="_blank" を自動で付与する
-                                    // a: ({node, ...props}) => {
-                                    //   if (props.href && props.href.startsWith('http')) {
-                                    //     return <a {...props} target="_blank" rel="noopener noreferrer" />;
-                                    //   }
-                                    //   return <a {...props} />;
-                                    // },
-                                    // 例: 画像に特定のクラスを付与する
-                                    // img: ({node, ...props}) => <img className="markdown-image" {...props} />
                                 }}
                             >
                                 {post.content}
                             </ReactMarkdown>
                         </div>
+                        {/* Twitterシェアリンク */}
+                        <div className='x-share-links'>
+                            <a
+                                href={twitterShareUrl}
+                                target="_blank" // 新しいタブで開く
+                                rel="noopener noreferrer" // セキュリティ対策
+                                className="cta-button-secondary twitter-share-button"
+                            >
+                                <img 
+                                    className="x-share-button"
+                                    src='/images/x-twitter-brands.svg'
+                                ></img>
+                                共有する
+                            </a>
+                        </div>
+                        
                     </article>
                     <div className="navigation-links">
                         <Link to="/blogs" className="cta-button-secondary">&larr; 他の記事を見る</Link>
