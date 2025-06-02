@@ -44,7 +44,7 @@ const membersData: Member[] = [
 	{
 		id: 4,
 		name: 'ogeeeen',
-		bio: '化学とゲームの二刀流。知性と戦略を武器に、あらゆる勝利を掴み獲る！',
+		bio: '理系とゲームの二刀流。知性と戦略を武器に、あらゆる勝利を掴み獲る！',
 		twitterUsername: 'omoshirokaiwai',
 		profileIcon: 'user4.jpg',
 	},
