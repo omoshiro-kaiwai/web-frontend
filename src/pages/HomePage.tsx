@@ -10,6 +10,9 @@ interface PostFrontmatter {
     title: string;
     date: string;
     summary: string;
+    author?: string;
+    authorID?: number; // 執筆者ID
+    tags?: string[];
     [key: string]: any;
 }
 
@@ -47,6 +50,12 @@ function parseFrontMatter(content: string): ParsedContent {
 
     return { data, body };
 }
+
+const getAuthorImagePath = (authorID?: number): string | null => {
+    if (!authorID) return null;
+    const imageName = 'user' + authorID + '.jpg';
+    return `/images/${imageName}`;
+};
 
 const HomePage: React.FC = () => {
 
@@ -112,20 +121,38 @@ const HomePage: React.FC = () => {
             <section className="blog-posts-preview">
                 <h2>最近の投稿</h2>
                 <div className="post-card-container">
-                    {posts.map((post) => (
-                        <div key={post.slug} className="post-card">
-                            <h3>{post.frontmatter.title}</h3>
-                            {post.frontmatter.date && (
-                            <p className="post-date">{post.frontmatter.date}</p>
-                            )}
-                            <p>{post.frontmatter.summary}</p>
-                            <Link to={`/blog/${post.slug}`} className="read-more">
-                            続きを読む &rarr;
-                            </Link>
-                        </div>
-                    ))}
+                    {posts.map((post) => {
+                        const authorImagePath = getAuthorImagePath(post.frontmatter.authorID);
+                        return (
+                            <div key={post.slug} className="post-card">
+                                <h3>{post.frontmatter.title}</h3>
+                                {post.frontmatter.date && (
+                                <p className="post-date">{post.frontmatter.date}</p>
+                                )}
+                                <p>{post.frontmatter.summary}</p>
+                                {post.frontmatter.author && ( 
+                                    <div className="author-info"> 
+                                        {authorImagePath && (
+                                            <img 
+                                                src={authorImagePath} 
+                                                alt={post.frontmatter.author} 
+                                                className="author-image"
+                                            />
+                                        )}
+                                        <span className="author-name">{post.frontmatter.author}</span>
+                                    </div>
+                                )}
+                                <Link to={`/blog/${post.slug}`} className="read-more">
+                                続きを読む &rarr;
+                                </Link>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
+            <div className="navigation-links">
+                <Link to="/blogs" className="cta-button-secondary">他の記事を見る &rarr;</Link>
+            </div>
             </div>
         </main>
 
