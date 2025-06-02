@@ -186,7 +186,7 @@ const BlogPostPage: React.FC = () => {
                             {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
                                 <div className="post-tags">
                                     {post.frontmatter.tags.map(tag => (
-                                        <span key={tag} className="tag">{tag}</span>
+                                        <span key={tag} className="tag">#{tag}</span>
                                     ))}
                                 </div>
                             )}
