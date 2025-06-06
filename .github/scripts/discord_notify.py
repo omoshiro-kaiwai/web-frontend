@@ -1,14 +1,18 @@
-# .github/scripts/discord_notify.py
-
 import os
 import sys
 import frontmatter # 外部ライブラリ: pip install python-frontmatter
 import requests    # 外部ライブラリ: pip install requests
 from pathlib import Path
 
-def send_discord_notification(webhook_url, title, post_url):
+def send_discord_notification(webhook_url, title, author, post_url):
     """Discordに通知を送信する関数"""
-    message_content = f"New Post!\n{title} | おもしろ界隈\n{post_url}"
+    
+    # authorの有無によってメッセージの文面を変更
+    if author:
+        message_content = f"New Post by {author}!\n{title} | おもしろ界隈\n{post_url}"
+    else:
+        message_content = f"New Post!\n{title} | おもしろ界隈\n{post_url}"
+        
     payload = {"content": message_content}
     
     try:
@@ -44,8 +48,10 @@ def main():
         print(f"Error loading or parsing frontmatter from '{markdown_file_path_str}': {e}")
         sys.exit(1)
 
-    # YAMLフロントマターから 'title' を取得
+    # YAMLフロントマターから 'title' と 'author' を取得
     article_title = post.get('title')
+    author = post.get('author') # authorを取得 (存在しない場合はNone)
+
     if not article_title:
         print(f"Error: 'title' not found in YAML frontmatter of '{markdown_file_path_str}'.")
         # 必要であれば、ここでファイル名からタイトルを生成するフォールバック処理も検討できます
@@ -65,7 +71,11 @@ def main():
         sys.exit(1)
         
     print(f"Preparing notification for article: '{article_title}' (slug: '{slug}')")
-    send_discord_notification(discord_webhook_url, article_title, full_post_url)
+    if author:
+        print(f"Author: {author}")
+        
+    # authorも引数に加えて通知関数を呼び出す
+    send_discord_notification(discord_webhook_url, article_title, author, full_post_url)
 
 if __name__ == "__main__":
     main()
