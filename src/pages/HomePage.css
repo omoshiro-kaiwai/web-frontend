@@ -238,10 +238,13 @@ body {
 }
 
 
-/* レスポンシブ対応（例） */
 @media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
   .header-content {
-    flex-direction: column; /* スマホでは縦並び */
+    flex-direction: column;
     align-items: center;
   }
   .navigation ul {
@@ -261,5 +264,64 @@ body {
   }
   .post-card-container {
     grid-template-columns: 1fr; /* スマホではカードを1列に */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+ .header {
+    padding: 10px 0;
+  }
+
+  .logo-link {
+    font-size: 1.6em; /* ロゴを少し小さく */
+  }
+
+  .navigation a {
+    font-size: 0.95rem; /* 約14.25px */
+    padding: 4px 8px;
+  }
+
+  .navigation li {
+    margin: 3px 7px; /* ナビゲーション間の余白を調整 */
+  }
+
+  .main-content {
+    padding: 30px 0; /* メインコンテンツの上下の余白を詰める */
+  }
+
+  .hero-section {
+    padding: 50px 20px;
+    margin-bottom: 40px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.9rem; /* 768pxの指定からさらに小さく */
+  }
+
+  .hero-section p {
+    font-size: 1rem; /* 768pxの指定からさらに小さく */
+  }
+
+  .cta-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+
+  .blog-posts-preview h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .post-card {
+    padding: 20px; /* カード内の余白を少し詰める */
+  }
+
+  .post-card h3 {
+    font-size: 1.3rem; /* 約20.8px */
   }
 }

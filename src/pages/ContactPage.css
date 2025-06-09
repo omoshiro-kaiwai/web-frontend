@@ -36,3 +36,38 @@
   border: 1px dashed #ced4da;
   border-radius: 8px;
 }
+
+/* ===================================
+ * レスポンシブ対応
+ * =================================== */
+
+/* 中間的な画面サイズ（タブレットなど）への対応 */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.1rem; /* タイトルを少し小さく */
+  }
+}
+
+/* 小さい画面（スマートフォン）への対応 */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1.5rem 0; /* ページ全体の上下の余白を詰める */
+  }
+
+  .container {
+    padding: 0 0.75rem; /* コンテンツ左右の余白を少し詰める */
+  }
+
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem; /* タイトルをさらに小さく */
+  }
+
+  .no-contact-message {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}

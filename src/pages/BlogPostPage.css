@@ -298,3 +298,57 @@ img.author-icon {
   .blog-post-body h3 { font-size: 1.4em; }
   .blog-post-body h4 { font-size: 1.2em; }
 }
+
+/* ===================================
+ * スマホ対応の追記 (480px以下)
+ * =================================== */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 30px 0; /* 上下の余白を少し詰める */
+  }
+ 
+  .blog-post-content-wrapper {
+    padding: 20px 15px; /* コンテンツ左右の余白をさらに詰める */
+    margin-bottom: 30px;
+  }
+
+  .blog-post-main-header {
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+  }
+
+  .blog-post-main-header h1 {
+    font-size: 1.7rem; /* 768pxからさらに小さく */
+    line-height: 1.3;
+  }
+ 
+  .post-meta {
+    font-size: 0.85rem;
+  }
+
+  .blog-post-body {
+    /* 基本のフォントサイズを微調整 */
+    font-size: 0.95rem; /* 約15.2px */
+    line-height: 1.7;
+  }
+
+  /* 本文中の見出しサイズを調整 */
+  .blog-post-body h2 { font-size: 1.5em; }
+  .blog-post-body h3 { font-size: 1.3em; }
+  .blog-post-body h4 { font-size: 1.15em; }
+ 
+  /* コードブロックの余白と文字サイズを調整 */
+  .blog-post-body pre {
+    padding: 0.8em;
+    font-size: 0.85em;
+  }
+ 
+  .cta-button-secondary {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+    .x-share-links {
+    margin-top: 50px;
+    }
+}
