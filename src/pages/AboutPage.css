@@ -122,7 +122,14 @@
 }
 
 /* レスポンシブ対応 */
-@media (min-width: 576px) { /* 少し大きめのスマホからカード内レイアウト変更 */
+/* ===================================
+ * レスポンシブ対応 (修正・追記)
+ * =================================== */
+
+/* 既存のメディアクエリの修正 */
+
+/* 少し大きめのスマホ(576px以上)からカード内レイアウト変更 */
+@media (min-width: 576px) {
   .member-card {
     flex-direction: row; /* アイコンと情報を横並びに */
     text-align: left;   /* テキストを左揃えに */
@@ -139,6 +146,7 @@
   }
 }
 
+/* タブレット(767px)以下への対応 */
 @media (max-width: 767px) {
   .members-grid {
     grid-template-columns: 1fr; /* スマホではカードを1列に */
@@ -149,17 +157,36 @@
   .about-hero-section p {
     font-size: 1rem;
   }
-  .member-card { /* スマホでは再度縦積みに戻す場合 */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+ /*
+  * 元のコードにあったメンバーカードを縦積みに戻す指定は、
+  * 576px以上で横並びにするスタイルと競合するため削除しました。
+  * これで、576px〜767pxの間で正しく横並びレイアウトが適用されます。
+  * 575px以下ではデフォルトの縦積みスタイルが適用されます。
+  */
+}
+
+
+/* [追記] より小さいスマートフォン画面（480px以下）への対応 */
+@media (max-width: 480px) {
+  .about-hero-section {
+    padding: 50px 20px; /* 余白を調整 */
   }
-  .member-icon-container {
-    margin-right: 0;
-    margin-bottom: 15px;
+
+  .about-hero-section h1 {
+    font-size: 1.8rem; /* さらに小さく */
   }
-  .member-profile-icon { /* スマホではアイコンサイズを元に戻すか、さらに調整 */
-    width: 100px;
-    height: 100px;
+
+  .members-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .member-card h3 {
+    font-size: 1.1rem; /* カード内の見出しを調整 */
+  }
+
+  .member-bio {
+    font-size: 0.85rem; /* 自己紹介文を調整 */
+    min-height: auto; /* 高さの最小値をリセット */
   }
 }
+
