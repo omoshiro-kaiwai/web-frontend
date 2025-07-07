@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import * as yaml from 'js-yaml';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import './BlogPostPage.css';
 
 import Header from '../components/Header';
@@ -193,6 +194,7 @@ const BlogPostPage: React.FC = () => {
                         </header>
                         <div className="blog-post-body">
                             <ReactMarkdown
+                                rehypePlugins={[rehypeRaw]}
                                 components={{
                                 }}
                             >
