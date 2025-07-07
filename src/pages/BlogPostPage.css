@@ -260,6 +260,11 @@ img.author-icon {
     gap: 8px;
 }
 
+iframe{
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
 /* ローディング・エラー表示用 */
 .loading-container,
 .error-container {
