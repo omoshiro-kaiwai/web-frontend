@@ -21,6 +21,14 @@ async function generate() {
     const { data: frontmatter } = matter(fileContents);
     const basename = path.basename(file, '.md'); // ファイル名から拡張子を除去
 
+    let thumbDisplay;
+    if(!frontmatter.thumb) {
+      thumbDisplay = null;
+    }
+    else{
+      thumbDisplay = `https://omoshirokaiwai.com/${frontmatter.thumb}`;
+    }
+
     return {
       title: frontmatter.title,
       description: frontmatter.description,
@@ -29,7 +37,7 @@ async function generate() {
       date: frontmatter.date,
       author: frontmatter.author,
       custom_elements: [
-        { 'thumb': `https://omoshirokaiwai.com/${frontmatter.thumb}` },
+        { 'thumb': {thumbDisplay} },
       ],
     };
   });
