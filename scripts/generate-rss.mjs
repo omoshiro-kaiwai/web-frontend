@@ -6,10 +6,10 @@ import { glob } from 'glob';
 
 async function generate() {
   const feed = new RSS({
-    title: 'Tsusuのブログ',
-    description: 'tsusu0409.comの最新投稿',
-    site_url: 'https://tsusu0409.com', // 自分のサイトのURLに書き換える
-    feed_url: 'https://tsusu0409.com/rss.xml',
+    title: 'おもしろ界隈',
+    description: 'おもしろ界隈の最新投稿',
+    site_url: 'https://omoshirokaiwai.com', // 自分のサイトのURLに書き換える
+    feed_url: 'https://omoshirokaiwai.com/rss.xml',
     language: 'ja',
   });
 
@@ -25,7 +25,7 @@ async function generate() {
       title: frontmatter.title,
       description: frontmatter.description,
       // 実際の記事URLに合わせて調整してください
-      url: `https://tsusu0409.com/blog/${basename}`,
+      url: `https://omoshirokaiwai.com/blog/${basename}`,
       date: frontmatter.date,
       custom_elements: [
         { 'thumb': frontmatter.thumb },
