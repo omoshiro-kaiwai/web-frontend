@@ -28,7 +28,7 @@ async function generate() {
       url: `https://omoshirokaiwai.com/blog/${basename}`,
       date: frontmatter.date,
       custom_elements: [
-        { 'thumb': frontmatter.thumb },
+        { 'thumb': `https://omoshirokaiwai.com/${frontmatter.thumb}` },
       ],
     };
   });
