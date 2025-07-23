@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Tsusuのブログ]]></title>
+        <description><![CDATA[tsusu0409.comの最新投稿]]></description>
+        <link>https://tsusu0409.com</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 23 Jul 2025 07:12:33 GMT</lastBuildDate>
+        <atom:link href="https://tsusu0409.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <language><![CDATA[ja]]></language>
+        <item>
+            <title><![CDATA[僕が初音ミクにハマったわけ]]></title>
+            <link>https://tsusu0409.com/blog/2025-07-07</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-07-07</guid>
+            <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[GRe4N BOYZの話（曲紹介編）]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-10</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-10</guid>
+            <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[ラプンツェルの花【レタ報vol.1】]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-09</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-09</guid>
+            <pubDate>Mon, 09 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[ゲームレビュー　～高圧洗浄～]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-07</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-07</guid>
+            <pubDate>Sat, 07 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[たくさんレタッチした～い！【レタ報 vol.0】]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-06</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-06</guid>
+            <pubDate>Fri, 06 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[自己紹介 + GRe4N BOYZの話]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-05</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-05</guid>
+            <pubDate>Thu, 05 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[え～あいに任せたら簡単にWebサイトが出来てしまった話]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-03</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-03</guid>
+            <pubDate>Tue, 03 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+        <item>
+            <title><![CDATA[おもしろ界隈ブログ、始動]]></title>
+            <link>https://tsusu0409.com/blog/2025-06-02</link>
+            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-02</guid>
+            <pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
+            <thumb></thumb>
+        </item>
+    </channel>
+</rss>
