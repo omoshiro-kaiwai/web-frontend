@@ -27,6 +27,7 @@ async function generate() {
       // 実際の記事URLに合わせて調整してください
       url: `https://omoshirokaiwai.com/blog/${basename}`,
       date: frontmatter.date,
+      author: frontmatter.author,
       custom_elements: [
         { 'thumb': `https://omoshirokaiwai.com/${frontmatter.thumb}` },
       ],
