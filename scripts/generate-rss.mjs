@@ -21,25 +21,23 @@ async function generate() {
     const { data: frontmatter } = matter(fileContents);
     const basename = path.basename(file, '.md'); // ファイル名から拡張子を除去
 
-    let thumbDisplay;
-    if(!frontmatter.thumb) {
-      thumbDisplay = null;
-    }
-    else{
-      thumbDisplay = `https://omoshirokaiwai.com/${frontmatter.thumb}`;
-    }
-
-    return {
+    // 基本的な投稿データを作成
+    const postData = {
       title: frontmatter.title,
       description: frontmatter.description,
-      // 実際の記事URLに合わせて調整してください
       url: `https://omoshirokaiwai.com/blog/${basename}`,
       date: frontmatter.date,
       author: frontmatter.author,
-      custom_elements: [
-        { 'thumb': {thumbDisplay} },
-      ],
     };
+
+    // frontmatter.thumbが存在する場合のみ、custom_elementsを追加
+    if (frontmatter.thumb) {
+      postData.custom_elements = [
+        { 'thumb': `https://omoshirokaiwai.com/${frontmatter.thumb}` }
+      ];
+    }
+
+    return postData;
   });
 
   // 日付でソート
