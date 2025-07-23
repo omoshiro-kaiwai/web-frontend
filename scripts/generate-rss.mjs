@@ -24,7 +24,7 @@ async function generate() {
     // 基本的な投稿データを作成
     const postData = {
       title: frontmatter.title,
-      description: frontmatter.description,
+      description: frontmatter.summary,
       url: `https://omoshirokaiwai.com/blog/${basename}`,
       date: frontmatter.date,
       author: frontmatter.author,
