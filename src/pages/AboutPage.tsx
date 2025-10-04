@@ -55,6 +55,13 @@ const membersData: Member[] = [
 		twitterUsername: 'omoshirokaiwai',
 		profileIcon: 'user5.jpg',
 	},
+	{
+		id: 6,
+		name: 'ひかぽん卍',
+		bio: '満を持して登場！おもしろ界隈随一の多ジャンルオタク。',
+		twitterUsername: 'omoshirokaiwai',
+		profileIcon: 'user6.jpg',
+	},
 ];
 
 const AboutPage: React.FC = () => {
