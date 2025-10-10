@@ -1,0 +1,66 @@
+<header class="header">
+  <div class="container">
+    <a href="/" class="site-name"><img src="/images/omoshirokaiwai.png" alt="おもしろ界隈"></a>
+      <nav class="navigation">
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blogs</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    box-sizing: border-box; /* paddingを含めてwidth 100%にする */
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-name {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    text-decoration: none;
+    color: #8b5cf6; /* ★変更点: キーカラーの紫に変更 */
+  }
+
+  /* ↓↓↓ このスタイルを追加 ↓↓↓ */
+  .site-name img {
+    height: 50px; /* 画像の高さを指定（お好みの値に調整してください） */
+    width: auto;  /* 高さに合わせて幅を自動調整 */
+    vertical-align: middle; /* 他の要素との垂直方向の整列を綺麗にする */
+  }
+  /* ↑↑↑ このスタイルを追加 ↑↑↑ */
+
+  .navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem; /* リンク間の余白 */
+  }
+
+  .navigation a {
+    text-decoration: none;
+    color: #4b5563; /* text-gray-600 */
+    font-weight: 500; /* font-medium */
+    transition: color 0.2s ease-in-out;
+  }
+
+  .navigation a:hover {
+    color: #8b5cf6; /* ★変更点: ホバー時の色を紫に変更 */
+  }
+</style>

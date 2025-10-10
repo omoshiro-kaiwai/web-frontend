@@ -13,8 +13,8 @@ async function generate() {
     language: 'ja',
   });
 
-  // src/assets/blogにあるmdファイルを全て取得
-  const files = await glob('src/assets/blog/*.md');
+  // src/pages/blogにあるmdファイルを全て取得
+  const files = await glob('src/pages/blog/*.md');
 
   const allPosts = files.map((file) => {
     const fileContents = fs.readFileSync(file, 'utf8');

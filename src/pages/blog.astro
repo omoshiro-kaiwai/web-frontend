@@ -5,12 +5,12 @@ import Footer from "../components/Footer.astro";
 
 const FALLBACK_IMAGE = '/images/fallback.png';
 
+// './blog/*.md' の部分をプロジェクトの構成に合わせて適宜変更してください
 const allPosts = await Astro.glob('./blog/*.md');
+// 日付の降順（新しい順）に記事をソート
 const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
-const recentPosts = sortedPosts.slice(0, 4);
-const latestPost = recentPosts[0];
-const otherPosts = recentPosts.slice(1);
 
+// 日付を YYYY.MM.DD 形式にフォーマットするヘルパー関数
 export function formatDate(dateString: string) {
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -20,40 +20,15 @@ export function formatDate(dateString: string) {
 }
 ---
 
-<Layout title="おもしろ界隈">
+<Layout title="投稿一覧 | おもしろ界隈">
     <Header />
 
     <main class="container">
-        <h2 class="section-title">最近の投稿</h2>
+        <h2 class="section-title">投稿一覧</h2>
 
-        {latestPost && (
-            <article class="latest-post">
-                <a href={latestPost.url} class="post-link">
-                    <img src={latestPost.frontmatter.thumb || FALLBACK_IMAGE} alt={latestPost.frontmatter.title} class="latest-post-thumb" />
-                    <div class="latest-post-content">
-                        <h3 class="latest-post-title">{latestPost.frontmatter.title}</h3>
-                        <p class="latest-post-summary">{latestPost.frontmatter.summary}</p>
-                        <div class="tags">
-                            {latestPost.frontmatter.tags.map((tag: string, index: number) => {
-                                const isLastTag = index === latestPost.frontmatter.tags.length - 1;
-                                return (
-                                    <span class:list={["tag", { "highlight": isLastTag }]}>
-                                        #{tag}
-                                    </span>
-                                )
-                            })}
-                        </div>
-                        <div class="author-info">
-                            <img src={`/images/user${latestPost.frontmatter.authorID}.jpg`} alt={latestPost.frontmatter.author} class="author-icon" />
-                            <span class="author-name">{latestPost.frontmatter.author}</span>
-                        </div>
-                    </div>
-                </a>
-            </article>
-        )}
-
+        {/* 記事一覧をグリッドで表示 */}
         <div class="recent-posts-grid">
-            {otherPosts.map(post => (
+            {sortedPosts.map(post => (
                 <article class="post-card">
                     <a href={post.url}>
                         <img src={post.frontmatter.thumb || FALLBACK_IMAGE} alt={post.frontmatter.title} class="post-card-thumb" />
