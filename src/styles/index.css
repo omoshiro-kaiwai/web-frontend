@@ -152,6 +152,7 @@ a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
 
 .post-card-summary {
@@ -163,6 +164,7 @@ a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
 
 .post-card-footer {
@@ -192,4 +194,32 @@ a {
     .recent-posts-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+
+/* 「他の記事を見る」ボタン */
+.more-posts {
+    text-align: center;
+    margin-top: 2.5rem; /* mt-10 */
+}
+
+.more-posts-button {
+    display: inline-block;
+    background-color: #ffffff; /* 白背景 */
+    color: #8b5cf6; /* 紫文字 */
+    font-weight: 600;
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border: 2px solid #8b5cf6; /* 紫の縁取り */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.1s ease-in-out;
+}
+
+.more-posts-button:hover {
+    background-color: #8b5cf6; /* ホバーで紫塗り */
+    color: #ffffff; /* 白文字に反転 */
+    transform: translateY(-2px);
+}
+
+.more-posts-button:active {
+    transform: translateY(0);
 }

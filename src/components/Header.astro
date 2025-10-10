@@ -1,6 +1,17 @@
 <header class="header">
   <div class="container">
-    <a href="/" class="site-name"><img src="/images/omoshirokaiwai.png" alt="おもしろ界隈"></a>
+    <a href="/" class="site-name">
+      <img src="/images/omoshirokaiwai.png" alt="おもしろ界隈" />
+    </a>
+
+    <!-- ▼ ハンバーガーボタン ▼ -->
+    <button class="menu-toggle" aria-label="メニューを開閉">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- ▼ ナビゲーション ▼ -->
     <nav class="navigation">
       <ul>
         <li><a href="/about">About Us</a></li>
@@ -19,7 +30,7 @@
     top: 0;
     z-index: 50;
     width: 100%;
-    box-sizing: border-box; /* paddingを含めてwidth 100%にする */
+    box-sizing: border-box;
   }
 
   .container {
@@ -30,43 +41,67 @@
     align-items: center;
   }
 
-  .site-name {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    text-decoration: none;
-    color: #8b5cf6; /* キーカラーの紫 */
-  }
-
   .site-name img {
-    height: 50px; /* 画像の高さ */
+    height: 50px;
     width: auto;
     vertical-align: middle;
   }
 
+  /* ▼ ナビゲーション ▼ */
   .navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem; /* リンク間の余白 */
+    gap: 1.5rem;
   }
 
   .navigation a {
     text-decoration: none;
-    color: #4b5563; /* text-gray-600 */
+    color: #4b5563;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
   }
 
   .navigation a:hover {
-    color: #8b5cf6; /* ホバー時の紫 */
+    color: #8b5cf6;
   }
 
-  /* ▼▼ レスポンシブ対応 ▼▼ */
+  /* ▼ ハンバーガーボタン ▼ */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #4b5563;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* ▼ レスポンシブ ▼ */
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: flex-start;
+    .menu-toggle {
+      display: flex;
+    }
+
+    .navigation {
+      display: none;
+      width: 100%;
+    }
+
+    .navigation.open {
+      display: block;
     }
 
     .navigation ul {
@@ -82,5 +117,27 @@
       padding: 0.5rem 0;
     }
   }
-  /* ▲▲ レスポンシブ対応 ▲▲ */
+
+  /* ▼ メニュー開閉時のアニメーション ▼ */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
 </style>
+
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.navigation');
+
+  if (toggleBtn && nav) {
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+  }
+</script>
