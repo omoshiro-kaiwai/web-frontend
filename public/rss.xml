@@ -1,67 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title><![CDATA[Tsusuのブログ]]></title>
-        <description><![CDATA[tsusu0409.comの最新投稿]]></description>
-        <link>https://tsusu0409.com</link>
+        <title><![CDATA[おもしろ界隈]]></title>
+        <description><![CDATA[おもしろ界隈の最新投稿]]></description>
+        <link>https://omoshirokaiwai.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 23 Jul 2025 07:12:33 GMT</lastBuildDate>
-        <atom:link href="https://tsusu0409.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 10 Oct 2025 10:01:30 GMT</lastBuildDate>
+        <atom:link href="https://omoshirokaiwai.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[ja]]></language>
         <item>
+            <title><![CDATA[はじめまして、卍です。]]></title>
+            <description><![CDATA[自己紹介]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-10-04</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-10-04</guid>
+            <dc:creator><![CDATA[ひかぽん卍]]></dc:creator>
+            <pubDate>Sat, 04 Oct 2025 00:00:00 GMT</pubDate>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/1004/マンボウ.jpg</thumb>
+        </item>
+        <item>
+            <title><![CDATA[8月のぼく]]></title>
+            <description><![CDATA[時が流れるの、はえー！]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-09-22</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-09-22</guid>
+            <dc:creator><![CDATA[れんきゅんなう☆]]></dc:creator>
+            <pubDate>Mon, 22 Sep 2025 00:00:00 GMT</pubDate>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0922/IMG_5737.jpg</thumb>
+        </item>
+        <item>
+            <title><![CDATA[7月のぼく]]></title>
+            <description><![CDATA[傑が言ってたから、書き言葉では僕。]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-08-02</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-08-02</guid>
+            <dc:creator><![CDATA[れんきゅんなう☆]]></dc:creator>
+            <pubDate>Sat, 02 Aug 2025 00:00:00 GMT</pubDate>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0802/20250724_210924~2.jpg</thumb>
+        </item>
+        <item>
             <title><![CDATA[僕が初音ミクにハマったわけ]]></title>
-            <link>https://tsusu0409.com/blog/2025-07-07</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-07-07</guid>
+            <description><![CDATA[Tsusu: オリジン]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-07-07</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-07-07</guid>
+            <dc:creator><![CDATA[Tsusu]]></dc:creator>
             <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0707/magicalmirai2024_photo_9.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[GRe4N BOYZの話（曲紹介編）]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-10</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-10</guid>
+            <description><![CDATA[ただただGRe4N BOYZの好きな曲を]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-10</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-10</guid>
+            <dc:creator><![CDATA[ogeeeen]]></dc:creator>
             <pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0610/metamon.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[ラプンツェルの花【レタ報vol.1】]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-09</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-09</guid>
+            <description><![CDATA[なんでゴーテルはFSにいないわけ？？？]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-09</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-09</guid>
+            <dc:creator><![CDATA[れんきゅんなう☆]]></dc:creator>
             <pubDate>Mon, 09 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0609/IMG_0831-1.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[ゲームレビュー　～高圧洗浄～]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-07</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-07</guid>
+            <description><![CDATA[初めましての投稿]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-07</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-07</guid>
+            <dc:creator><![CDATA[いけじーん]]></dc:creator>
             <pubDate>Sat, 07 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0607/Power_Wash.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[たくさんレタッチした～い！【レタ報 vol.0】]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-06</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-06</guid>
+            <description><![CDATA[でも、やる気は出ない()]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-06</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-06</guid>
+            <dc:creator><![CDATA[れんきゅんなう☆]]></dc:creator>
             <pubDate>Fri, 06 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0606/IMG_0591-2.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[自己紹介 + GRe4N BOYZの話]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-05</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-05</guid>
+            <description><![CDATA[ogeeeenです。よろしくお願いします！]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-05</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-05</guid>
+            <dc:creator><![CDATA[ogeeeen]]></dc:creator>
             <pubDate>Thu, 05 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0605/0605_01.jpg</thumb>
         </item>
         <item>
             <title><![CDATA[え～あいに任せたら簡単にWebサイトが出来てしまった話]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-03</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-03</guid>
+            <description><![CDATA[紹介と自戒と反省と]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-03</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-03</guid>
+            <dc:creator><![CDATA[Tsusu]]></dc:creator>
             <pubDate>Tue, 03 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
+            <thumb>https://omoshirokaiwai.com//blogImages/2025/0603/0603_01.png</thumb>
         </item>
         <item>
             <title><![CDATA[おもしろ界隈ブログ、始動]]></title>
-            <link>https://tsusu0409.com/blog/2025-06-02</link>
-            <guid isPermaLink="true">https://tsusu0409.com/blog/2025-06-02</guid>
+            <description><![CDATA[俺たちの「おもしろ」は、外の世界へ。]]></description>
+            <link>https://omoshirokaiwai.com/blog/2025-06-02</link>
+            <guid isPermaLink="true">https://omoshirokaiwai.com/blog/2025-06-02</guid>
+            <dc:creator><![CDATA[おもしろ界隈]]></dc:creator>
             <pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
-            <thumb></thumb>
         </item>
     </channel>
 </rss>

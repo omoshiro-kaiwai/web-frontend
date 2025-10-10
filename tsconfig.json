@@ -1,7 +1,12 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "baseUrl": ".", // プロジェクトのルートを基準にする
+    "paths": {
+      "@/*": ["src/*"] // @/ を src/ へのエイリアス（別名）として設定
+    },
+    "allowJs": true // .js ファイルのインポートを許可する
+  }
 }

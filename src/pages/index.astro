@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const FALLBACK_IMAGE = '/images/fallback.png';
+
+const allPosts = await Astro.glob('./blog/*.md');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const recentPosts = sortedPosts.slice(0, 4);
+const latestPost = recentPosts[0];
+const otherPosts = recentPosts.slice(1);
+
+export function formatDate(dateString: string) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}.${month}.${day}`;
+}
+---
+
+<Layout title="おもしろ界隈">
+    <Header />
+
+    <main class="container">
+        <h2 class="section-title">最近の投稿</h2>
+
+        {latestPost && (
+            <article class="latest-post">
+                <a href={latestPost.url} class="post-link">
+                    <img src={latestPost.frontmatter.thumb || FALLBACK_IMAGE} alt={latestPost.frontmatter.title} class="latest-post-thumb" />
+                    <div class="latest-post-content">
+                        <h3 class="latest-post-title">{latestPost.frontmatter.title}</h3>
+                        <p class="latest-post-summary">{latestPost.frontmatter.summary}</p>
+                        <div class="tags">
+                            {latestPost.frontmatter.tags.map((tag: string, index: number) => {
+                                const isLastTag = index === latestPost.frontmatter.tags.length - 1;
+                                return (
+                                    <span class:list={["tag", { "highlight": isLastTag }]}>
+                                        #{tag}
+                                    </span>
+                                )
+                            })}
+                        </div>
+                        <div class="author-info">
+                            <img src={`/images/user${latestPost.frontmatter.authorID}.jpg`} alt={latestPost.frontmatter.author} class="author-icon" />
+                            <span class="author-name">{latestPost.frontmatter.author}</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        )}
+
+        <div class="recent-posts-grid">
+            {otherPosts.map(post => (
+                <article class="post-card">
+                    <a href={post.url}>
+                        <img src={post.frontmatter.thumb || FALLBACK_IMAGE} alt={post.frontmatter.title} class="post-card-thumb" />
+                        <div class="post-card-content">
+                            <h4 class="post-card-title">{post.frontmatter.title}</h4>
+                            <p class="post-card-summary">{post.frontmatter.summary}</p>
+                            <div class="post-card-footer">
+                                <div class="author-info">
+                                    <img src={`/images/user${post.frontmatter.authorID}.jpg`} alt={post.frontmatter.author} class="author-icon" />
+                                    <span class="author-name">{post.frontmatter.author}</span>
+                                </div>
+                                <time datetime={post.frontmatter.date} class="post-date">
+                                    {formatDate(post.frontmatter.date)}
+                                </time>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            ))}
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

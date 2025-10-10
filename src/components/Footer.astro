@@ -1,0 +1,108 @@
+---
+// Astroコンポーネントのスクリプトセクション（今回は空）
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-section copyright-section">
+      <a href="/">
+        <img src="/images/omoshirokaiwai.png" alt="おもしろ界隈 ロゴ" class="footer-logo">
+      </a>
+      <p class="copyright-text">
+        ©2025 おもしろ界隈<br />
+        All rights reserved.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3 class="footer-heading">CONTACT</h3>
+      <ul class="footer-list">
+        <li><a href="mailto:omoshirokaiwai@gmail.com">omoshirokaiwai@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3 class="footer-heading">SOCIAL</h3>
+      <ul class="footer-list">
+        <li><a href="https://twitter.com/omoshirokaiwai" target="_blank" rel="noopener noreferrer">X</a></li>
+        <li><a href="https://youtube.com/@omoshirokaiwai" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #fff;
+    border-top: 1px solid #e5e7eb; /* 上の境界線 */
+    padding: 2.5rem 1.5rem;
+    margin-top: 4rem; /* mainコンテンツとの余白 */
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 左のセクションを広く取る */
+    gap: 2rem; /* セクション間の余白 */
+    align-items: start; /* 上揃え */
+  }
+
+  .footer-section {
+    /* 各セクションの共通スタイル */
+  }
+
+  /* ▼ 追加したスタイル ▼ */
+  .footer-logo {
+    height: 50px; /* ロゴの高さを指定（お好みで調整してください） */
+    width: auto;
+    margin-bottom: 1rem; /* ロゴとコピーライト表記の間の余白 */
+  }
+  /* ▲ 追加したスタイル ▲ */
+
+  .copyright-section .copyright-text {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-500 */
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .footer-heading {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-800 */
+    margin: 0 0 0.75rem 0;
+    letter-spacing: 0.05em; /* 文字間を少し広げる */
+  }
+
+  .footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* リストアイテム間の余白 */
+  }
+
+  .footer-list a {
+    text-decoration: none;
+    color: #4b5563; /* text-gray-600 */
+    transition: color 0.2s ease-in-out;
+  }
+
+  .footer-list a:hover {
+    color: #8b5cf6; /* キーカラーの紫 */
+  }
+
+  /* モバイル表示用の設定 */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr; /* 縦に並べる */
+      text-align: center; /* 中央揃えに */
+    }
+
+    .footer-list {
+      align-items: center; /* 中央揃え */
+    }
+  }
+</style>
