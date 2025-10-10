@@ -48,7 +48,6 @@ const { frontmatter } = Astro.props;
 
   /* ▼ ここから下がMarkdownから変換されたHTML要素のスタイル ▼ */
   .post-content {
-    /* 全体の文字スタイル */
     color: #374151;
     line-height: 1.7; /* 行間を広めに */
   }
@@ -78,6 +77,7 @@ const { frontmatter } = Astro.props;
     text-decoration: underline;
     transition: color 0.2s ease;
   }
+
   .post-content :global(a:hover) {
     color: #6d28d9;
   }
@@ -96,41 +96,63 @@ const { frontmatter } = Astro.props;
     font-style: italic;
   }
 
-  /* ▼▼▼ ここから追記 ▼▼▼ */
-
-  /* 記事内の画像のスタイル */
+  /* ▼▼▼ 記事内メディアのスタイル ▼▼▼ */
   .post-content :global(img) {
-    display: block; /* 中央寄せするためにblock要素に */
-    max-width: 100%; /* 横幅の上限を90%に設定 */
-    height: auto; /* 高さは自動調整して比率を維持 */
-    margin: 2rem auto; /* 上下の余白と、左右の中央寄せ */
-    border-radius: 0.5rem; /* 角を少し丸める */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
-  /* YouTube埋め込み動画(iframe)のスタイル */
   .post-content :global(iframe) {
-    display: block; /* 中央寄せするためにblock要素に */
-    width: 100%; /* 横幅を90%に設定 */
-    aspect-ratio: 16 / 9; /* 16:9の比率を維持 */
-    height: auto; /* 高さは自動調整 */
-    margin: 2rem auto; /* 上下の余白と、左右の中央寄せ */
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin: 2rem auto;
     border: none;
     border-radius: 0.5rem;
   }
-  
-  /* ▲▲▲ ここまで追記 ▲▲▲ */
+  /* ▲▲▲ 記事内メディアのスタイル ▲▲▲ */
 
   .post-content :global(pre) {
     background-color: #1f2937;
     color: #e5e7eb;
     padding: 1rem;
     border-radius: 0.5rem;
-    overflow-x: auto; /* 横に長いコードはスクロール */
+    overflow-x: auto;
     margin-bottom: 1.5rem;
   }
 
   .post-content :global(code) {
     font-family: 'Courier New', Courier, monospace;
   }
+
+  /* ▼▼ レスポンシブ対応 ▼▼ */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 0.75rem;
+    }
+
+    .post-title {
+      font-size: 1.75rem; /* モバイルで見やすく */
+    }
+
+    .post-content :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .post-content :global(h3) {
+      font-size: 1.25rem;
+    }
+
+    .post-content :global(img),
+    .post-content :global(iframe) {
+      margin: 1.5rem auto;
+      border-radius: 0.375rem;
+    }
+  }
+  /* ▲▲ レスポンシブ対応 ▲▲ */
 </style>

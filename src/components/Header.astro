@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <a href="/" class="site-name"><img src="/images/omoshirokaiwai.png" alt="おもしろ界隈"></a>
-      <nav class="navigation">
+    <nav class="navigation">
       <ul>
         <li><a href="/about">About Us</a></li>
         <li><a href="/blog">Blogs</a></li>
@@ -34,16 +34,14 @@
     font-size: 1.5rem; /* text-2xl */
     font-weight: 700; /* font-bold */
     text-decoration: none;
-    color: #8b5cf6; /* ★変更点: キーカラーの紫に変更 */
+    color: #8b5cf6; /* キーカラーの紫 */
   }
 
-  /* ↓↓↓ このスタイルを追加 ↓↓↓ */
   .site-name img {
-    height: 50px; /* 画像の高さを指定（お好みの値に調整してください） */
-    width: auto;  /* 高さに合わせて幅を自動調整 */
-    vertical-align: middle; /* 他の要素との垂直方向の整列を綺麗にする */
+    height: 50px; /* 画像の高さ */
+    width: auto;
+    vertical-align: middle;
   }
-  /* ↑↑↑ このスタイルを追加 ↑↑↑ */
 
   .navigation ul {
     list-style: none;
@@ -56,11 +54,33 @@
   .navigation a {
     text-decoration: none;
     color: #4b5563; /* text-gray-600 */
-    font-weight: 500; /* font-medium */
+    font-weight: 500;
     transition: color 0.2s ease-in-out;
   }
 
   .navigation a:hover {
-    color: #8b5cf6; /* ★変更点: ホバー時の色を紫に変更 */
+    color: #8b5cf6; /* ホバー時の紫 */
   }
+
+  /* ▼▼ レスポンシブ対応 ▼▼ */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navigation ul {
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    .navigation a {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+  }
+  /* ▲▲ レスポンシブ対応 ▲▲ */
 </style>

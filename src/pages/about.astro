@@ -114,42 +114,39 @@ const members = membersData.filter(member => member.id !== 99);
 
   /* --- Styles for About Section --- */
   .about-section {
-    margin-bottom: 5rem; /* MEMBERSセクションとの余白 */
-    text-align: center; /* タイトルの中央揃えを確実にする */
+    margin-bottom: 5rem;
+    text-align: center;
   }
 
   .about-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 2rem; /* 説明文との余白を調整 */
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
     color: #374151;
   }
 
   .about-description {
-    /* ▼▼▼ ここから修正 ▼▼▼ */
-    max-width: 650px; /* 文章が長くなりすぎないように最大幅を指定 */
-    margin: 0 auto; /* ブロック全体を中央に配置する */
+    max-width: 650px;
+    margin: 0 auto;
     font-size: 1.1rem;
     color: #4b5563;
     line-height: 2;
-    text-align: left; /* ブロック内の文章は左揃えにする */
-    /* ▲▲▲ ここまで修正 ▲▲▲ */
+    text-align: left;
   }
 
   .about-description p {
-    margin-bottom: 1.5rem; /* 段落ごとの余白 */
+    margin-bottom: 1.5rem;
   }
 
   .about-description p:last-child {
     margin-bottom: 0;
   }
-  /* ------------------------------------ */
 
   .page-title {
     text-align: center;
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 3rem; /* mb-12 */
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
     color: #374151;
   }
 
@@ -164,7 +161,8 @@ const members = membersData.filter(member => member.id !== 99);
     border-radius: 0.75rem;
     padding: 2rem 1.5rem;
     text-align: center;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+                0 2px 4px -2px rgb(0 0 0 / 0.1);
     display: flex;
     flex-direction: column;
   }
@@ -199,8 +197,44 @@ const members = membersData.filter(member => member.id !== 99);
     font-weight: 500;
     transition: all 0.2s ease;
   }
+
   .social-link:hover {
     text-decoration: underline;
     opacity: 0.8;
   }
+
+  /* ▼▼ レスポンシブ対応 ▼▼ */
+  @media (max-width: 768px) {
+    .about-title {
+      font-size: 1.5rem;
+    }
+
+    .about-description {
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+
+    .members-grid {
+      gap: 1.5rem;
+    }
+
+    .member-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .profile-icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    .member-name {
+      font-size: 1.125rem;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+  /* ▲▲ レスポンシブ対応 ▲▲ */
 </style>
