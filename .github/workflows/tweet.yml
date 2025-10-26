@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/assets/blog/**'
+      - 'src/pages/blog/**'
 
 jobs:
   tweet:
