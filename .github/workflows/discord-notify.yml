@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/assets/blog/**.md' # 監視対象のパス
+      - 'src/pages/blog/**.md' # 監視対象のパス
 
 jobs:
   notify_discord_on_new_post:
