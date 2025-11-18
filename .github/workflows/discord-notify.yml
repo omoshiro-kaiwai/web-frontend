@@ -20,7 +20,7 @@ jobs:
         id: added_files_check
         uses: tj-actions/changed-files@v44 # 最新バージョンを確認してください
         with:
-          files: src/assets/blog/**.md 
+          files: src/pages/blog/**.md 
           # outputs.added_files で追加されたファイルのリストがスペース区切りで提供されます
 
       - name: Set up Python
